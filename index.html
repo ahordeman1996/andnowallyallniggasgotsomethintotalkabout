@@ -62,12 +62,19 @@
             z-index: 1;
             transition: opacity 1.5s ease-in-out;
             background: #000;
+            overflow: hidden;
         }
 
-        .video-container video {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
+        .video-container iframe {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 100vw;
+            height: 56.25vw; /* 16:9 aspect ratio */
+            min-height: 100vh;
+            min-width: 177.77vh; /* 16:9 aspect ratio */
+            transform: translate(-50%, -50%);
+            pointer-events: none;
             filter: contrast(1.4) saturate(0.8) sepia(0.2);
             opacity: 0.8;
             transition: opacity 1.5s ease-in-out;
@@ -172,7 +179,7 @@
         .social-icons a:hover {
             transform: scale(1.15) translateY(-5px);
             color: var(--brand-color);
-            filter: blur(0px) drop-shadow(4px 0 4px var(--vhs-color-1)) drop-shadow(-4px 0 4px var(--vhs-color-2));
+            filter: blur(0px) drop-shadow(0 0 15px var(--brand-color)) drop-shadow(0 0 30px var(--vhs-color-1)) drop-shadow(0 0 45px var(--brand-color));
         }
 
         .social-icons svg {
@@ -244,10 +251,7 @@
     <div class="scanlines"></div>
 
     <div class="video-container" id="vidContainer">
-        <video id="heroVideo" autoplay muted playsinline disablePictureInPicture>
-            <source src="webby.mov" type="video/quicktime">
-            <source src="webby.mp4" type="video/mp4">
-        </video>
+        <iframe id="heroVideo" src="https://player.vimeo.com/video/1179643466?background=1&autoplay=1&muted=1&playsinline=1" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
     </div>
 
     <div class="overlay" id="contentOverlay">
@@ -268,8 +272,9 @@
         </div>
     </div>
 
+    <script src="https://player.vimeo.com/api/player.js"></script>
     <script>
-        const video = document.getElementById('heroVideo');
+        const iframe = document.getElementById('heroVideo');
         const vidContainer = document.getElementById('vidContainer');
         const overlay = document.getElementById('contentOverlay');
         const countdownEl = document.getElementById('countdown');
@@ -280,7 +285,7 @@
             if (isVideoComplete) return;
             isVideoComplete = true;
             
-            video.style.opacity = '0';
+            iframe.style.opacity = '0';
             
             setTimeout(() => {
                 vidContainer.style.opacity = '0';
@@ -294,20 +299,28 @@
             }, 1000); 
         };
 
-        video.addEventListener('ended', showCountdown);
-        video.addEventListener('error', showCountdown);
+        const player = new Vimeo.Player(iframe);
+        player.on('ended', showCountdown);
+        player.on('error', showCountdown);
+        player.on('timeupdate', function(data) {
+            // Using timeupdate as a fallback since background=1 might loop and never fire ended
+            if (data.percent > 0.95 || data.seconds > 4.0) {
+                 showCountdown();
+            }
+        });
+
+        // Backup timeouts
+        let playStarted = false;
+        player.on('play', () => {
+            playStarted = true;
+            setTimeout(() => {
+                if (!isVideoComplete) showCountdown();
+            }, 5500); 
+        });
 
         setTimeout(() => {
-            if (!isVideoComplete) showCountdown();
-        }, 4500);
-
-        if (video.readyState >= 3) {
-            video.play().catch(() => {});
-        } else {
-            video.addEventListener('canplay', () => {
-                video.play().catch(() => {});
-            });
-        }
+            if (!playStarted && !isVideoComplete) showCountdown();
+        }, 4000);
 
         const countDownDate = new Date("April 10, 2026 00:00:00").getTime();
 
