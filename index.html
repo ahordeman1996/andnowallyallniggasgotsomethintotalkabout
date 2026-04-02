@@ -71,8 +71,9 @@
             position: absolute;
             top: 0;
             left: 0;
-            width: 100%;
-            height: 100%;
+            width: 100vw;
+            height: 100vh;
+            height: 100dvh;
             z-index: 1;
             transition: opacity 1.5s ease-in-out;
             background: #000;
@@ -86,7 +87,9 @@
             width: 100vw;
             height: 56.25vw; /* 16:9 aspect ratio */
             min-height: 100vh;
+            min-height: 100dvh;
             min-width: 177.77vh; /* 16:9 aspect ratio */
+            min-width: 177.77dvh;
             transform: translate(-50%, -50%);
             pointer-events: none;
             filter: contrast(1.4) saturate(0.8) sepia(0.2);
@@ -265,7 +268,7 @@
     <div class="scanlines"></div>
 
     <div class="video-container" id="vidContainer">
-        <iframe id="heroVideo" src="https://player.vimeo.com/video/1179643466?background=1&autoplay=1&muted=1&playsinline=1" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
+        <iframe id="heroVideo" src="https://player.vimeo.com/video/1179643466?background=1&autoplay=1&muted=1&playsinline=1&autopause=0" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
     </div>
 
     <div class="overlay" id="contentOverlay">
@@ -323,7 +326,11 @@
             }
         });
 
-        // Backup timeouts
+        // Backup timeouts and force-play
+        player.ready().then(() => {
+            player.play().catch(e => console.warn("Autoplay strict block:", e));
+        });
+
         let playStarted = false;
         player.on('play', () => {
             playStarted = true;
@@ -334,7 +341,7 @@
 
         setTimeout(() => {
             if (!playStarted && !isVideoComplete) showCountdown();
-        }, 4000);
+        }, 12000);
 
         const countDownDate = new Date("April 10, 2026 00:00:00").getTime();
 
