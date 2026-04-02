@@ -14,9 +14,18 @@
             --brand-color: #cc2027;
         }
 
-        ::selection {
-            background-color: var(--brand-color);
+        ::-moz-selection {
+            background-color: #cc2027;
             color: #fff;
+        }
+
+        ::selection {
+            background-color: #cc2027;
+            color: #fff;
+        }
+
+        * {
+            -webkit-tap-highlight-color: rgba(204, 32, 39, 0.4);
         }
 
         body, html {
