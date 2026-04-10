@@ -280,7 +280,7 @@
         @keyframes fadeIn { to { opacity: 1; } }
 
         .embed-wrapper {
-            width: 100%; aspect-ratio: 16 / 9; margin-bottom: 3.5rem; position: relative;
+            width: 100%; aspect-ratio: 15 / 11; margin-bottom: 3.5rem; position: relative;
             background: #000; border: 1px solid rgba(255, 255, 255, 0.1);
             box-shadow: 0 0 25px rgba(204, 32, 39, 0.15), inset 0 0 15px rgba(204, 32, 39, 0.1);
             transition: all 0.3s ease; overflow: hidden;
@@ -354,30 +354,8 @@
     <div class="grain"></div>
     <div class="scanlines"></div>
 
-    <div class="video-container" id="vidContainer">
-        <iframe id="heroVideo" src="https://player.vimeo.com/video/1179643466?background=1&autoplay=1&muted=1&playsinline=1&autopause=0" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
-    </div>
-
-    <div class="overlay" id="contentOverlay">
-        <div class="countdown-wrapper">
-            <h1 class="vhs-text" id="countdown" data-text="00:00:00:00">00:00:00:00</h1>
-        </div>
-        
-        <div class="social-icons">
-            <a href="https://www.facebook.com/bloodbather/" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
-                <svg viewBox="0 0 24 24"><path d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z"/></svg>
-            </a>
-            <a href="https://www.instagram.com/bloodbather/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
-                <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
-            </a>
-            <a href="https://x.com/bloodbather" target="_blank" rel="noopener noreferrer" aria-label="Twitter">
-                <svg viewBox="0 0 24 24"><path d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z"/></svg>
-            </a>
-        </div>
-    </div>
-
     <!-- PORTAL / LINKTREE SECTION -->
-    <div class="portal-container" id="portalContainer">
+    <div class="portal-container active" id="portalContainer">
         <h1 class="vhs-text title-text" data-text="BLOODBATHER">BLOODBATHER</h1>
         
         <div class="embed-wrapper">
@@ -385,118 +363,13 @@
         </div>
 
         <div class="links-wrapper">
-            <a href="https://open.spotify.com/track/04BKxtPWAxbhAkLgS0yrBJ" class="link-btn" aria-label="Spotify"><span class="btn-text">SPOTIFY</span></a>
-            <a href="https://music.apple.com/au/album/dog-2-god-single/1887216664" class="link-btn" aria-label="Apple Music"><span class="btn-text">APPLE MUSIC</span></a>
-            <a href="https://music.youtube.com/playlist?list=OLAK5uy_nb6sWmMg14EqfEsxpDJGCfnqqfm3MVBI0" class="link-btn" aria-label="YouTube Music"><span class="btn-text">YOUTUBE MUSIC</span></a>
-            <a href="https://discord.gg/abqw598vM5" class="link-btn" aria-label="Discord"><span class="btn-text">DISCORD</span></a>
+            <a href="https://open.spotify.com/track/04BKxtPWAxbhAkLgS0yrBJ" target="_blank" rel="noopener noreferrer" class="link-btn" aria-label="Spotify"><span class="btn-text">SPOTIFY</span></a>
+            <a href="https://music.apple.com/us/album/dog-2-god-single/1887216664" target="_blank" rel="noopener noreferrer" class="link-btn" aria-label="Apple Music"><span class="btn-text">APPLE MUSIC</span></a>
+            <a href="https://music.youtube.com/playlist?list=OLAK5uy_nb6sWmMg14EqfEsxpDJGCfnqqfm3MVBI0" target="_blank" rel="noopener noreferrer" class="link-btn" aria-label="YouTube Music"><span class="btn-text">YOUTUBE MUSIC</span></a>
+            <a href="https://discord.gg/abqw598vM5" target="_blank" rel="noopener noreferrer" class="link-btn" aria-label="Discord"><span class="btn-text">DISCORD</span></a>
         </div>
     </div>
 
-    <script src="https://player.vimeo.com/api/player.js"></script>
-    <script>
-        const iframe = document.getElementById('heroVideo');
-        const vidContainer = document.getElementById('vidContainer');
-        const overlay = document.getElementById('contentOverlay');
-        const countdownEl = document.getElementById('countdown');
-        const countDownDate = new Date("April 9, 2026 21:00:00 EST").getTime();
 
-        let isVideoComplete = false;
-        let portalActivated = false;
-
-        const activatePortal = () => {
-            if (portalActivated) return;
-            portalActivated = true;
-            
-            overlay.style.transition = 'opacity 1s ease-in-out';
-            overlay.style.opacity = '0';
-            
-            setTimeout(() => {
-                overlay.style.display = 'none';
-                const portal = document.getElementById('portalContainer');
-                portal.classList.add('active');
-            }, 1000);
-        };
-
-        const showCountdown = () => {
-            if (isVideoComplete) return;
-            isVideoComplete = true;
-            
-            iframe.style.opacity = '0';
-            
-            setTimeout(() => {
-                vidContainer.style.opacity = '0';
-                
-                setTimeout(() => {
-                    vidContainer.style.display = 'none';
-                    const now = new Date().getTime();
-                    
-                    if (countDownDate - now < 0) {
-                        portalActivated = true;
-                        document.getElementById('portalContainer').classList.add('active');
-                        overlay.style.display = 'none';
-                    } else {
-                        overlay.style.pointerEvents = 'auto';
-                        overlay.style.opacity = '1';
-                    }
-                }, 1000);
-                
-            }, 1000); 
-        };
-
-        const player = new Vimeo.Player(iframe);
-        player.on('ended', showCountdown);
-        player.on('error', showCountdown);
-        player.on('timeupdate', function(data) {
-            // Using timeupdate as a fallback since background=1 might loop and never fire ended
-            if (data.percent > 0.95 || data.seconds > 4.0) {
-                 showCountdown();
-            }
-        });
-
-        // Backup timeouts and force-play
-        player.ready().then(() => {
-            player.play().catch(e => console.warn("Autoplay strict block:", e));
-        });
-
-        let playStarted = false;
-        player.on('play', () => {
-            playStarted = true;
-            setTimeout(() => {
-                if (!isVideoComplete) showCountdown();
-            }, 5500); 
-        });
-
-        setTimeout(() => {
-            if (!playStarted && !isVideoComplete) showCountdown();
-        }, 12000);
-
-        const updateTimer = () => {
-            const now = new Date().getTime();
-            const distance = countDownDate - now;
-
-            if (distance < 0) {
-                countdownEl.innerHTML = "00:00:00:00";
-                countdownEl.setAttribute('data-text', "00:00:00:00");
-                
-                if (isVideoComplete && !portalActivated) {
-                    activatePortal();
-                }
-                return;
-            }
-
-            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-            const display = `${String(days).padStart(2, '0')}:${String(hours).padStart(2, '0')}:${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
-            
-            countdownEl.innerHTML = display;
-            countdownEl.setAttribute('data-text', display);
-        };
-
-        updateTimer();
-        setInterval(updateTimer, 1000);
-    </script>
 </body>
 </html>
