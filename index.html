@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -28,7 +29,8 @@
             -webkit-tap-highlight-color: rgba(204, 32, 39, 0.4);
         }
 
-        body, html {
+        body,
+        html {
             margin: 0;
             padding: 0;
             width: 100%;
@@ -45,7 +47,10 @@
         /* Digital grain overlay */
         .grain {
             position: fixed;
-            top: -100%; left: -100%; width: 300%; height: 300%;
+            top: -100%;
+            left: -100%;
+            width: 300%;
+            height: 300%;
             pointer-events: none;
             z-index: 100;
             opacity: 0.15;
@@ -54,16 +59,47 @@
         }
 
         @keyframes grain-animation {
-            0%, 100% { transform: translate(0, 0); }
-            10% { transform: translate(-5%, -10%); }
-            20% { transform: translate(-15%, 5%); }
-            30% { transform: translate(7%, -25%); }
-            40% { transform: translate(-5%, 25%); }
-            50% { transform: translate(-15%, 10%); }
-            60% { transform: translate(15%, 0%); }
-            70% { transform: translate(0%, 15%); }
-            80% { transform: translate(3%, 35%); }
-            90% { transform: translate(-10%, 10%); }
+
+            0%,
+            100% {
+                transform: translate(0, 0);
+            }
+
+            10% {
+                transform: translate(-5%, -10%);
+            }
+
+            20% {
+                transform: translate(-15%, 5%);
+            }
+
+            30% {
+                transform: translate(7%, -25%);
+            }
+
+            40% {
+                transform: translate(-5%, 25%);
+            }
+
+            50% {
+                transform: translate(-15%, 10%);
+            }
+
+            60% {
+                transform: translate(15%, 0%);
+            }
+
+            70% {
+                transform: translate(0%, 15%);
+            }
+
+            80% {
+                transform: translate(3%, 35%);
+            }
+
+            90% {
+                transform: translate(-10%, 10%);
+            }
         }
 
         /* Video Container */
@@ -85,10 +121,12 @@
             top: 50%;
             left: 50%;
             width: 100vw;
-            height: 56.25vw; /* 16:9 aspect ratio */
+            height: 56.25vw;
+            /* 16:9 aspect ratio */
             min-height: 100vh;
             min-height: 100dvh;
-            min-width: 177.77vh; /* 16:9 aspect ratio */
+            min-width: 177.77vh;
+            /* 16:9 aspect ratio */
             min-width: 177.77dvh;
             transform: translate(-50%, -50%);
             pointer-events: none;
@@ -100,14 +138,15 @@
         /* Scanlines */
         .scanlines {
             position: fixed;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background: linear-gradient(
-                to bottom,
-                rgba(255,255,255,0),
-                rgba(255,255,255,0) 50%,
-                rgba(0,0,0,0.2) 50%,
-                rgba(0,0,0,0.2)
-            );
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom,
+                    rgba(255, 255, 255, 0),
+                    rgba(255, 255, 255, 0) 50%,
+                    rgba(0, 0, 0, 0.2) 50%,
+                    rgba(0, 0, 0, 0.2));
             background-size: 100% 4px;
             pointer-events: none;
             z-index: 99;
@@ -137,8 +176,8 @@
         .vhs-text {
             font-size: 5vw;
             font-weight: bold;
-            text-shadow: 
-                3px 0 2px var(--vhs-color-1), 
+            text-shadow:
+                3px 0 2px var(--vhs-color-1),
                 -3px 0 2px var(--vhs-color-2);
             filter: blur(1px) contrast(150%);
             animation: text-flicker 0.12s infinite alternate, text-shift 5s infinite;
@@ -148,7 +187,8 @@
         }
 
         /* Double pseudo-elements for severe chromatic aberration */
-        .vhs-text::before, .vhs-text::after {
+        .vhs-text::before,
+        .vhs-text::after {
             content: attr(data-text);
             position: absolute;
             top: 0;
@@ -157,7 +197,7 @@
             height: 100%;
             opacity: 0.8;
         }
-        
+
         .vhs-text::before {
             left: 3px;
             text-shadow: -2px 0 red;
@@ -166,7 +206,7 @@
             clip-path: inset(10% 0 80% 0);
             pointer-events: none;
         }
-        
+
         .vhs-text::after {
             left: -3px;
             text-shadow: -2px 0 blue;
@@ -190,8 +230,13 @@
             animation: floating 4s infinite ease-in-out;
         }
 
-        .social-icons a:nth-child(2) { animation-delay: -1s; }
-        .social-icons a:nth-child(3) { animation-delay: -2s; }
+        .social-icons a:nth-child(2) {
+            animation-delay: -1s;
+        }
+
+        .social-icons a:nth-child(3) {
+            animation-delay: -2s;
+        }
 
         .social-icons a:hover {
             transform: scale(1.15) translateY(-5px);
@@ -206,38 +251,116 @@
         }
 
         @keyframes text-flicker {
-            0% { opacity: 0.9; text-shadow: 2px 0 2px var(--vhs-color-1), -2px 0 2px var(--vhs-color-2); filter: blur(1px); }
-            50% { opacity: 1; text-shadow: 4px 0 3px var(--vhs-color-1), -2px 0 4px var(--vhs-color-2); filter: blur(1.5px); }
-            100% { opacity: 0.8; text-shadow: 1px 0 4px var(--vhs-color-1), -3px 0 2px var(--vhs-color-2); filter: blur(1px); transform: translateX(1px); }
+            0% {
+                opacity: 0.9;
+                text-shadow: 2px 0 2px var(--vhs-color-1), -2px 0 2px var(--vhs-color-2);
+                filter: blur(1px);
+            }
+
+            50% {
+                opacity: 1;
+                text-shadow: 4px 0 3px var(--vhs-color-1), -2px 0 4px var(--vhs-color-2);
+                filter: blur(1.5px);
+            }
+
+            100% {
+                opacity: 0.8;
+                text-shadow: 1px 0 4px var(--vhs-color-1), -3px 0 2px var(--vhs-color-2);
+                filter: blur(1px);
+                transform: translateX(1px);
+            }
         }
 
         @keyframes text-shift {
-            0%, 98% { transform: scale(1); }
-            99% { transform: scale(1) translateX(5px) skewX(5deg); }
-            100% { transform: scale(1) translateX(-5px) skewX(-5deg); }
+
+            0%,
+            98% {
+                transform: scale(1);
+            }
+
+            99% {
+                transform: scale(1) translateX(5px) skewX(5deg);
+            }
+
+            100% {
+                transform: scale(1) translateX(-5px) skewX(-5deg);
+            }
         }
 
         @keyframes glitch-anim-1 {
-            0% { clip-path: inset(20% 0 80% 0); transform: translate(-2px, 1px); }
-            20% { clip-path: inset(60% 0 10% 0); transform: translate(2px, -1px); }
-            40% { clip-path: inset(40% 0 50% 0); transform: translate(2px, 2px); }
-            60% { clip-path: inset(80% 0 5% 0); transform: translate(-2px, -2px); }
-            80% { clip-path: inset(10% 0 70% 0); transform: translate(2px, -1px); }
-            100% { clip-path: inset(30% 0 50% 0); transform: translate(-2px, 1px); }
+            0% {
+                clip-path: inset(20% 0 80% 0);
+                transform: translate(-2px, 1px);
+            }
+
+            20% {
+                clip-path: inset(60% 0 10% 0);
+                transform: translate(2px, -1px);
+            }
+
+            40% {
+                clip-path: inset(40% 0 50% 0);
+                transform: translate(2px, 2px);
+            }
+
+            60% {
+                clip-path: inset(80% 0 5% 0);
+                transform: translate(-2px, -2px);
+            }
+
+            80% {
+                clip-path: inset(10% 0 70% 0);
+                transform: translate(2px, -1px);
+            }
+
+            100% {
+                clip-path: inset(30% 0 50% 0);
+                transform: translate(-2px, 1px);
+            }
         }
 
         @keyframes glitch-anim-2 {
-            0% { clip-path: inset(10% 0 60% 0); transform: translate(2px, -1px); }
-            20% { clip-path: inset(80% 0 5% 0); transform: translate(-2px, 2px); }
-            40% { clip-path: inset(30% 0 10% 0); transform: translate(-2px, -1px); }
-            60% { clip-path: inset(70% 0 20% 0); transform: translate(2px, 1px); }
-            80% { clip-path: inset(5% 0 80% 0); transform: translate(2px, -2px); }
-            100% { clip-path: inset(50% 0 30% 0); transform: translate(-2px, 1px); }
+            0% {
+                clip-path: inset(10% 0 60% 0);
+                transform: translate(2px, -1px);
+            }
+
+            20% {
+                clip-path: inset(80% 0 5% 0);
+                transform: translate(-2px, 2px);
+            }
+
+            40% {
+                clip-path: inset(30% 0 10% 0);
+                transform: translate(-2px, -1px);
+            }
+
+            60% {
+                clip-path: inset(70% 0 20% 0);
+                transform: translate(2px, 1px);
+            }
+
+            80% {
+                clip-path: inset(5% 0 80% 0);
+                transform: translate(2px, -2px);
+            }
+
+            100% {
+                clip-path: inset(50% 0 30% 0);
+                transform: translate(-2px, 1px);
+            }
         }
-        
+
         @keyframes floating {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(5px); }
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(5px);
+            }
         }
 
         /* Subtle CRT distortion border */
@@ -249,7 +372,7 @@
             left: 0;
             bottom: 0;
             right: 0;
-            background: radial-gradient(circle, rgba(0,0,0,0) 60%, rgba(0,0,0,0.6) 100%);
+            background: radial-gradient(circle, rgba(0, 0, 0, 0) 60%, rgba(0, 0, 0, 0.6) 100%);
             z-index: 98;
             pointer-events: none;
         }
@@ -259,7 +382,7 @@
             position: relative;
             z-index: 10;
             width: 100%;
-            max-width: 700px;
+            max-width: 1100px;
             min-height: 100vh;
             display: none;
             flex-direction: column;
@@ -268,61 +391,167 @@
             box-sizing: border-box;
             opacity: 0;
         }
+
         .portal-container.active {
             display: flex;
             animation: fadeIn 1.5s ease-in-out forwards;
         }
-        @keyframes fadeIn { to { opacity: 1; } }
+
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+            }
+        }
 
         .embed-wrapper {
-            width: 100%; height: 0; padding-bottom: 66.6667%; margin-bottom: 3.5rem; position: relative;
-            background: #000; border: 1px solid rgba(255, 255, 255, 0.1);
+            width: 100%;
+            height: 0;
+            padding-bottom: 66.6667%;
+            margin-bottom: 3.5rem;
+            position: relative;
+            background: #000;
+            border: 1px solid rgba(255, 255, 255, 0.1);
             box-shadow: 0 0 25px rgba(204, 32, 39, 0.15), inset 0 0 15px rgba(204, 32, 39, 0.1);
-            transition: all 0.3s ease; overflow: hidden;
+            transition: all 0.3s ease;
+            overflow: hidden;
         }
+
         .embed-wrapper:hover {
             box-shadow: 0 0 35px rgba(204, 32, 39, 0.4), inset 0 0 20px rgba(204, 32, 39, 0.2);
             border-color: rgba(204, 32, 39, 0.5);
         }
+
         .embed-wrapper iframe {
-            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-            pointer-events: auto; z-index: 2;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: auto;
+            z-index: 2;
         }
 
         .links-wrapper {
-            width: 100%; display: flex; flex-direction: column; gap: 1.25rem; padding-bottom: 5rem;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 1.25rem;
         }
-        
+
+        .discord-wrapper {
+            padding-bottom: 5rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .songs-container {
+            display: flex;
+            flex-direction: row;
+            gap: 3rem;
+            width: 100%;
+            align-items: flex-start;
+        }
+
+        .song-column {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            min-width: 0;
+        }
+
         .portal-container.active .links-wrapper {
             animation: slideUpFade 1.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-            opacity: 0; transform: translateY(20px);
+            opacity: 0;
+            transform: translateY(20px);
             animation-delay: 0.5s;
         }
 
-        @keyframes slideUpFade { to { opacity: 1; transform: translateY(0); } }
+        @keyframes slideUpFade {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
 
         .link-btn {
-            position: relative; width: 100%; padding: 1.25rem; box-sizing: border-box; text-decoration: none; color: #fff; border: 1px solid rgba(255, 255, 255, 0.15); background: rgba(0, 0, 0, 0.5); display: flex; justify-content: center; align-items: center; overflow: hidden; backdrop-filter: blur(5px); transition: border-color 0s, box-shadow 0s;
+            position: relative;
+            width: 100%;
+            padding: 1.25rem;
+            box-sizing: border-box;
+            text-decoration: none;
+            color: #fff;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            background: rgba(0, 0, 0, 0.5);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            backdrop-filter: blur(5px);
+            transition: border-color 0s, box-shadow 0s;
         }
+
         .link-btn::before {
-            content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: var(--brand-color); opacity: 0; z-index: 1;
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--brand-color);
+            opacity: 0;
+            z-index: 1;
         }
+
         .link-btn:hover {
-            border-color: var(--brand-color); box-shadow: 0 0 25px rgba(204, 32, 39, 0.6); z-index: 5; animation: btnTremor 0.15s ease-in-out forwards;
+            border-color: var(--brand-color);
+            box-shadow: 0 0 25px rgba(204, 32, 39, 0.6);
+            z-index: 5;
+            animation: btnTremor 0.15s ease-in-out forwards;
         }
+
         @keyframes btnTremor {
-            0% { transform: scale(1) translate(0); }
-            25% { transform: scale(1.01) translate(-2px, 1px); }
-            50% { transform: scale(1.02) translate(1px, -2px); }
-            75% { transform: scale(1.01) translate(-1px, 2px); }
-            100% { transform: scale(1.02) translate(0); }
+            0% {
+                transform: scale(1) translate(0);
+            }
+
+            25% {
+                transform: scale(1.01) translate(-2px, 1px);
+            }
+
+            50% {
+                transform: scale(1.02) translate(1px, -2px);
+            }
+
+            75% {
+                transform: scale(1.01) translate(-1px, 2px);
+            }
+
+            100% {
+                transform: scale(1.02) translate(0);
+            }
         }
-        .link-btn:hover::before { opacity: 1; }
+
+        .link-btn:hover::before {
+            opacity: 1;
+        }
+
         .btn-text {
-            position: relative; z-index: 2; font-size: 1.4rem; font-weight: bold; letter-spacing: 0.15em; text-shadow: 2px 0 2px var(--vhs-color-1), -2px 0 2px var(--vhs-color-2); transition: filter 0.2s ease, letter-spacing 0.2s ease; filter: blur(0.5px);
+            position: relative;
+            z-index: 2;
+            font-size: 1.4rem;
+            font-weight: bold;
+            letter-spacing: 0.15em;
+            text-shadow: 2px 0 2px var(--vhs-color-1), -2px 0 2px var(--vhs-color-2);
+            transition: filter 0.2s ease, letter-spacing 0.2s ease;
+            filter: blur(0.5px);
         }
+
         .link-btn:hover .btn-text {
-            color: #000; text-shadow: 0 0 10px rgba(255, 255, 255, 0.8); filter: blur(0px); letter-spacing: 0.25em;
+            color: #000;
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+            filter: blur(0px);
+            letter-spacing: 0.25em;
         }
 
         .portal-container .vhs-text {
@@ -331,19 +560,71 @@
             line-height: 1;
         }
 
-        @media screen and (max-width: 768px) {
-            .vhs-text { font-size: 8vw; }
-            .social-icons svg { width: 32px; height: 32px; }
-            .social-icons { gap: 2rem; }
-            
-            .portal-container .vhs-text { font-size: 2.8rem; margin-bottom: 2rem; }
-            .portal-container { padding: 3rem 1rem; }
-            .btn-text { font-size: 1.1rem; }
-            .link-btn:hover .btn-text { letter-spacing: 0.2em; }
+        .song-title {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            text-align: center;
+            letter-spacing: 0.1em;
+            text-shadow: 2px 0 2px var(--vhs-color-1), -2px 0 2px var(--vhs-color-2);
+            line-height: 1.4;
         }
-        
+
+        .section-divider {
+            width: 100%;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(204, 32, 39, 0.5), transparent);
+            margin: 4rem 0;
+            position: relative;
+        }
+
+        @media screen and (max-width: 768px) {
+            .vhs-text {
+                font-size: 8vw;
+            }
+
+            .social-icons svg {
+                width: 32px;
+                height: 32px;
+            }
+
+            .social-icons {
+                gap: 2rem;
+            }
+
+            .portal-container .vhs-text {
+                font-size: 2.8rem;
+                margin-bottom: 2rem;
+            }
+
+            .portal-container {
+                padding: 3rem 1rem;
+            }
+
+            .btn-text {
+                font-size: 1.1rem;
+            }
+
+            .link-btn:hover .btn-text {
+                letter-spacing: 0.2em;
+            }
+
+            .song-title {
+                font-size: 1.1rem;
+                margin-bottom: 1.5rem;
+            }
+
+            .section-divider {
+                margin: 3rem 0;
+            }
+
+            .songs-container {
+                flex-direction: column;
+                gap: 4rem;
+            }
+        }
     </style>
 </head>
+
 <body>
 
     <div class="grain"></div>
@@ -352,19 +633,60 @@
     <!-- PORTAL / LINKTREE SECTION -->
     <div class="portal-container active" id="portalContainer">
         <h1 class="vhs-text title-text" data-text="BLOODBATHER">BLOODBATHER</h1>
-        
-        <div class="embed-wrapper">
-            <iframe src="https://www.youtube.com/embed/lKwcC3VfhlA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
+        <div class="songs-container">
+            <div class="song-column">
+                <h2 class="song-title">LYING...</h2>
+                <div class="embed-wrapper">
+                    <iframe src="https://www.youtube.com/embed/gSrAJGMvTH0" title="YouTube video player" frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        allowfullscreen></iframe>
+                </div>
+
+                <div class="links-wrapper">
+                    <a href="https://open.spotify.com/track/6qSR49MmC6pqogI30wtoSC" target="_blank"
+                        rel="noopener noreferrer" class="link-btn" aria-label="Spotify"><span
+                            class="btn-text">SPOTIFY</span></a>
+                    <a href="https://music.apple.com/au/album/lying-is-the-most-fun-a-girl-can-have-without/1889505929?i=1889505930"
+                        target="_blank" rel="noopener noreferrer" class="link-btn" aria-label="Apple Music"><span
+                            class="btn-text">APPLE MUSIC</span></a>
+                    <a href="https://music.youtube.com/playlist?list=OLAK5uy_lC8R3wv4qRfpbPKBIDyh6tWvh2oTK2_uA"
+                        target="_blank" rel="noopener noreferrer" class="link-btn" aria-label="YouTube Music"><span
+                            class="btn-text">YOUTUBE MUSIC</span></a>
+                </div>
+            </div>
+
+            <div class="song-column">
+                <h2 class="song-title">DOG 2 GOD</h2>
+                <div class="embed-wrapper">
+                    <iframe src="https://www.youtube.com/embed/lKwcC3VfhlA" title="YouTube video player" frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        allowfullscreen></iframe>
+                </div>
+
+                <div class="links-wrapper">
+                    <a href="https://open.spotify.com/track/04BKxtPWAxbhAkLgS0yrBJ" target="_blank"
+                        rel="noopener noreferrer" class="link-btn" aria-label="Spotify"><span
+                            class="btn-text">SPOTIFY</span></a>
+                    <a href="https://music.apple.com/us/album/dog-2-god-single/1887216664" target="_blank"
+                        rel="noopener noreferrer" class="link-btn" aria-label="Apple Music"><span class="btn-text">APPLE
+                            MUSIC</span></a>
+                    <a href="https://music.youtube.com/playlist?list=OLAK5uy_nb6sWmMg14EqfEsxpDJGCfnqqfm3MVBI0"
+                        target="_blank" rel="noopener noreferrer" class="link-btn" aria-label="YouTube Music"><span
+                            class="btn-text">YOUTUBE MUSIC</span></a>
+                </div>
+            </div>
         </div>
 
-        <div class="links-wrapper">
-            <a href="https://open.spotify.com/track/04BKxtPWAxbhAkLgS0yrBJ" target="_blank" rel="noopener noreferrer" class="link-btn" aria-label="Spotify"><span class="btn-text">SPOTIFY</span></a>
-            <a href="https://music.apple.com/us/album/dog-2-god-single/1887216664" target="_blank" rel="noopener noreferrer" class="link-btn" aria-label="Apple Music"><span class="btn-text">APPLE MUSIC</span></a>
-            <a href="https://music.youtube.com/playlist?list=OLAK5uy_nb6sWmMg14EqfEsxpDJGCfnqqfm3MVBI0" target="_blank" rel="noopener noreferrer" class="link-btn" aria-label="YouTube Music"><span class="btn-text">YOUTUBE MUSIC</span></a>
-            <a href="https://discord.gg/abqw598vM5" target="_blank" rel="noopener noreferrer" class="link-btn" aria-label="Discord"><span class="btn-text">DISCORD</span></a>
+        <div class="section-divider"></div>
+
+        <div class="links-wrapper discord-wrapper">
+            <a href="https://discord.gg/abqw598vM5" target="_blank" rel="noopener noreferrer" class="link-btn"
+                aria-label="Discord"><span class="btn-text">DISCORD</span></a>
         </div>
     </div>
 
 
 </body>
+
 </html>
